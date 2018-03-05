@@ -27,11 +27,11 @@ function draw() {
     }
     if (keyCode == UP_ARROW) {
       y--;
-      osc2.amp(0.9, 0);
+      osc2.amp(0.8, 0);
     }
     if (keyCode == DOWN_ARROW) {
       y++;
-      osc2.amp(0.9, 0);
+      osc2.amp(0.8, 0);
     }
   }
   rect(x, y, 30, 30);
