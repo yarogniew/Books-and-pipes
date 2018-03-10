@@ -3,6 +3,7 @@ var osc;
 var playing = false;
 var x = 215;
 var y = 215;
+var step = 0.5;
 
 function setup() {
   createCanvas(480, 480);
@@ -18,19 +19,19 @@ function draw() {
   if (keyIsPressed) {
 
     if (keyCode == LEFT_ARROW) {
-      x--;
+      x=x-step;
       osc1.amp(0.5, 0);
     }
     if (keyCode == RIGHT_ARROW) {
-      x++;
+      x=x+step;
       osc1.amp(0.5, 0);
     }
     if (keyCode == UP_ARROW) {
-      y--;
+      y=y-step;
       osc2.amp(0.8, 0);
     }
     if (keyCode == DOWN_ARROW) {
-      y++;
+      y=y+step;
       osc2.amp(0.8, 0);
     }
   }
