@@ -1,10 +1,8 @@
-var szerEkranu = 600;
-var wysEkranu = 600;
+var szerEkranu = 600; wysEkranu = 600;
 
 var osc;
 //var playing = false;
-var x = szerEkranu/2;
-var y = wysEkranu/2;
+var x = szerEkranu/2; y = wysEkranu/2;
 var step = 0.3;
 
 var xoff = 0.05;
@@ -26,13 +24,9 @@ function setup() {
 
 function draw() {
 
-  if (mouseIsPressed) {
-          background(200);
-          }
 
   var n = noise(xoff)*5;
   // With each cycle, increment xoff
-
 
 
 
@@ -42,11 +36,11 @@ function draw() {
 
     if (keyCode == BACKSPACE && a<60)
     {
-        a=a+1;
+        a=a+0.5;
       }
       if (keyCode == TAB && a>10)
       {
-          a=a-1;
+          a=a-0.5;
         }
 
 
