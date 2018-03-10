@@ -8,7 +8,8 @@ var xoff = 0.05;
 var xincrement = 0.5;
 
 function setup() {
-  createCanvas(480, 480);
+  createCanvas(640, 640);
+
   osc1 = new p5.Noise('white');
   osc2 = new p5.Noise('pink');
   osc1.amp(0, 0);
@@ -42,7 +43,10 @@ function draw() {
       osc2.amp(0.8, 0);
     }
   }
+  fill('white');
   rect(x+n, y-n, 40, 40);
+  noFill();
+  rect(1,1,640-2, 640-2);
 
   osc1.amp(0.0, 0.1);
   osc2.amp(0.0, 0.1);
