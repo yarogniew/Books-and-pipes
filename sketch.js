@@ -42,7 +42,7 @@ function draw() {
       osc2.amp(0.8, 0);
     }
   }
-  rect(x, y, 30, 30);
+  rect(x+n, y-n, 40, 40);
 
   osc1.amp(0.0, 0.1);
   osc2.amp(0.0, 0.1);
