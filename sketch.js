@@ -70,7 +70,7 @@ function draw() {
 
 
   rectMode(CENTER);
-  //ustawienie srodka jako punktu odniesienia
+  //ustawienie srodka jako punktu odniesienia kwadratu
   fill('white');
 
   var rand=random(1);
@@ -82,6 +82,9 @@ function draw() {
 }
 
 function keyTyped() {
-  if (key == 'a') {
-      a=a+0.5;}
+  if (key == '[') {
+      a=a+5;
+
+    text(a, 10, 10);
+}
 }
