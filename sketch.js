@@ -28,21 +28,18 @@ function draw() {
   var n = noise(xoff)*5;
   // With each cycle, increment xoff
 
-
-
   //print(n);
       //background(200);
   if (keyIsPressed) {
 
-    if (keyCode == BACKSPACE && a<60)
+    /*if (keyCode == BACKSPACE && a<60)
     {
         a=a+0.5;
       }
-      if (keyCode == TAB && a>10)
+      if (keyCode == 'a' && a>10)
       {
           a=a-0.5;
-        }
-
+        }*/
 
     if (keyCode == ESCAPE)
       {
@@ -75,9 +72,16 @@ function draw() {
   rectMode(CENTER);
   //ustawienie srodka jako punktu odniesienia
   fill('white');
+
+  var rand=random(1);
   rect(x+n, y-n, a, a);
 
   osc1.amp(0.0, 0.1);
   osc2.amp(0.0, 0.1);
     xoff += xincrement;
+}
+
+function keyTyped() {
+  if (key == 'a') {
+      a=a+0.5;}
 }
