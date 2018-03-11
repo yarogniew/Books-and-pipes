@@ -3,15 +3,16 @@ var szerEkranu = 600; wysEkranu = 600;
 var osc;
 //var playing = false;
 var x = szerEkranu/2; y = wysEkranu/2;
-var step = 0.3;
+var step = 0.2;
 
 var xoff = 0.05;
 var xincrement = 0.5;
 
-var a = 38; // bok kwadratu
+var a = 30; // bok kwadratu
 
 function setup() {
-  createCanvas(szerEkranu, wysEkranu);
+  //createCanvas(szerEkranu, wysEkranu);
+  createCanvas(windowWidth, windowHeight);
   background(200);
  	//createCanvas(displayWidth, displayHeight);
   osc1 = new p5.Noise('white');
@@ -31,15 +32,6 @@ function draw() {
   //print(n);
       //background(200);
   if (keyIsPressed) {
-
-    /*if (keyCode == BACKSPACE && a<60)
-    {
-        a=a+0.5;
-      }
-      if (keyCode == 'a' && a>10)
-      {
-          a=a-0.5;
-        }*/
 
     if (keyCode == ESCAPE)
       {
@@ -82,9 +74,10 @@ function draw() {
 }
 
 function keyTyped() {
-  if (key == '[') {
-      a=a+5;
 
-    text(a, 10, 10);
-}
+  if (key == '=') {
+      a=a+3;}else if (key == '-') {
+      a=a-3;
+      }
+
 }
