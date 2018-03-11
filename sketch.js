@@ -3,12 +3,17 @@ var szerEkranu = 600; wysEkranu = 600;
 var osc;
 //var playing = false;
 var x = szerEkranu/2; y = wysEkranu/2;
-var step = 0.2;
+var step = 0.3;
 
 var xoff = 0.05;
 var xincrement = 0.5;
 
 var a = 30; // bok kwadratu
+
+function preloader(){
+  text("sranie",10,10);
+  delay(3000);
+}
 
 function setup() {
   //createCanvas(szerEkranu, wysEkranu);
@@ -40,22 +45,23 @@ function draw() {
 
     if (keyCode == LEFT_ARROW && x>0 )
       {
-        x=x-step-n;
+        x=x-step-n/2-a/50;
+        // -a/30 wyrównanie prędkości dużych i małych kwadratów
         osc1.amp(0.5, 0);
       }
     if (keyCode == RIGHT_ARROW && x<szerEkranu-38)
       {
-        x=x+step+n;
+        x=x+step+n/2+a/50;
         osc1.amp(0.5, 0);
       }
     if (keyCode == UP_ARROW && y>0)
       {
-        y=y-step-n;
+        y=y-step-n/2-a/50;
         osc2.amp(0.8, 0);
       }
     if (keyCode == DOWN_ARROW && y<wysEkranu-38)
       {
-        y=y+step+n;
+        y=y+step+n/2+a/50;
         osc2.amp(0.8, 0);
       }
   }
