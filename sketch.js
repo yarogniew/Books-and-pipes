@@ -7,7 +7,7 @@ var step = 0.3;
 var margin = 10; // margines
 var xoff = 0.05;
 var xincrement = 0.5;
-
+var n;
 
 var a = 40; // bok kwadratu
 
@@ -25,7 +25,7 @@ function setup() {
   osc2.amp(0, 0);
   osc2.start();
   osc = new p5.SqrOsc(); // set frequency and type
-  osc.amp(0);
+  osc.amp(0, 0);
   osc.start();
 
 
@@ -37,9 +37,13 @@ function setup() {
 
 function draw() {
 
-  var n = noise(xoff)*5;
+    n = noise(xoff)*5;
+    if (x<a/2+margin || x>windowWidth-a/2-margin || y<a/2+margin*4  || y>windowHeight-a/2-margin)
+    {
+      alarmo();
+    } else {  osc.amp(0, 0);}
+print(y,x);
 
-  //print(n);
       //background(200);
   if (keyIsPressed) {
         if (keyCode == 50) {
@@ -48,7 +52,7 @@ function draw() {
       } else if (keyCode == ESCAPE)
       {
         background(200);
-      } else if (keyCode == LEFT_ARROW && x>0+a/2+margin )
+      } else if (keyCode == LEFT_ARROW && x>a/2+margin )
       {
         x=x-step-n/2-a/50;
         // -a/50 wyrównanie prędkości dużych i małych kwadratów
@@ -57,7 +61,7 @@ function draw() {
       {
         x=x+step+n/2+a/50;
         osc1.amp(0.5, 0);
-      } else if (keyCode == UP_ARROW && y>0+a/2+margin*4)
+      } else if (keyCode == UP_ARROW && y>a/2+margin*4)
       {
         y=y-step-n/2-a/50;
         osc2.amp(0.8, 0);
@@ -79,4 +83,10 @@ blendMode(HARD_LIGHT);
   osc2.amp(0.0, 0.1);
     xoff += xincrement;
     // With each cycle, increment xoff
+
+}
+
+function alarmo() {
+osc.amp(0.2, 0);
+osc.freq(n*700);
 }
