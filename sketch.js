@@ -9,7 +9,6 @@ var xincrement = 0.5;
 
 var a = 40; // bok kwadratu
 
-
 function setup() {
   //createCanvas(szerEkranu, wysEkranu);
   createCanvas(windowWidth, windowHeight);
@@ -33,7 +32,6 @@ function setup() {
 function draw() {
 
   var n = noise(xoff)*5;
-
 
   //print(n);
       //background(200);
@@ -63,7 +61,6 @@ function draw() {
         osc2.amp(0.8, 0);
       }
   }
-
 
   rectMode(CENTER);
   //ustawienie srodka jako punktu odniesienia kwadratu
