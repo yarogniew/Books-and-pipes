@@ -32,7 +32,7 @@ function setup() {
 
 function draw() {
 
-  var n = noise(xoff)*5;
+var n = noise(xoff)*5;
 
 
   //print(n);
@@ -69,7 +69,6 @@ function draw() {
   //ustawienie srodka jako punktu odniesienia kwadratu
   fill('white');
 
-  var rand=random(1);
   rect(x+n, y-n, a, a);
 
   osc1.amp(0.0, 0.1);
