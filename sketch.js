@@ -3,7 +3,7 @@
 var osc;
 var x, y;
 var step = 0.3;
-
+var margin = 10; // margines
 var xoff = 0.05;
 var xincrement = 0.5;
 
@@ -41,30 +41,23 @@ function draw() {
         if (keyCode == 50) {
         a=a+0.5;}else if (keyCode == 49) {
         a=a-0.5;
-        }
-
-    if (keyCode == ESCAPE)
+      } else if (keyCode == ESCAPE)
       {
         background(200);
-      }
-
-    else if (keyCode == LEFT_ARROW && x>0+a/2+10 )
+      } else if (keyCode == LEFT_ARROW && x>0+a/2+margin )
       {
         x=x-step-n/2-a/50;
         // -a/50 wyrównanie prędkości dużych i małych kwadratów
         osc1.amp(0.5, 0);
-      }
-    else if (keyCode == RIGHT_ARROW && x<windowWidth-a/2-10)
+      } else if (keyCode == RIGHT_ARROW && x<windowWidth-a/2-margin)
       {
         x=x+step+n/2+a/50;
         osc1.amp(0.5, 0);
-      }
-    else if (keyCode == UP_ARROW && y>0+a/2+10)
+      } else if (keyCode == UP_ARROW && y>0+a/2+margin)
       {
         y=y-step-n/2-a/50;
         osc2.amp(0.8, 0);
-      }
-    else if (keyCode == DOWN_ARROW && y<windowHeight-a/2-10)
+      } else if (keyCode == DOWN_ARROW && y<windowHeight-a/2-margin)
       {
         y=y+step+n/2+a/50;
         osc2.amp(0.8, 0);
