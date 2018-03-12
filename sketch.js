@@ -1,24 +1,21 @@
-var szerEkranu = 600; wysEkranu = 600;
+// Bibliotekarz
 
 var osc;
-//var playing = false;
-var x = szerEkranu/2; y = wysEkranu/2;
+var x, y;
 var step = 0.3;
 
 var xoff = 0.05;
 var xincrement = 0.5;
 
-var a = 30; // bok kwadratu
+var a = 40; // bok kwadratu
 
-function preloader(){
-  text("sranie",10,10);
-  delay(3000);
-}
 
 function setup() {
   //createCanvas(szerEkranu, wysEkranu);
   createCanvas(windowWidth, windowHeight);
   background(200);
+ x = windowWidth/2;
+  y = windowHeight/2;
  	//createCanvas(displayWidth, displayHeight);
   osc1 = new p5.Noise('white');
   osc2 = new p5.Noise('pink');
@@ -30,13 +27,13 @@ function setup() {
   textSize(16);
   textAlign(CENTER);
   fill(240);
-  text("ESC=clear, '1'=biger, '2'=smaller, arrays=move" , windowWidth/2, windowHeight/2);
+  text("ESC=clear, '1'=biger, '2'=smaller, arrays=move" , windowWidth/2, 40);
 }
 
 function draw() {
 
   var n = noise(xoff)*5;
-  // With each cycle, increment xoff
+
 
   //print(n);
       //background(200);
@@ -51,23 +48,23 @@ function draw() {
         background(200);
       }
 
-    else if (keyCode == LEFT_ARROW && x>0 )
+    else if (keyCode == LEFT_ARROW && x>0+a/2+10 )
       {
         x=x-step-n/2-a/50;
-        // -a/30 wyrównanie prędkości dużych i małych kwadratów
+        // -a/50 wyrównanie prędkości dużych i małych kwadratów
         osc1.amp(0.5, 0);
       }
-    else if (keyCode == RIGHT_ARROW && x<szerEkranu-38)
+    else if (keyCode == RIGHT_ARROW && x<windowWidth-a/2-10)
       {
         x=x+step+n/2+a/50;
         osc1.amp(0.5, 0);
       }
-    else if (keyCode == UP_ARROW && y>0)
+    else if (keyCode == UP_ARROW && y>0+a/2+10)
       {
         y=y-step-n/2-a/50;
         osc2.amp(0.8, 0);
       }
-    else if (keyCode == DOWN_ARROW && y<wysEkranu-38)
+    else if (keyCode == DOWN_ARROW && y<windowHeight-a/2-10)
       {
         y=y+step+n/2+a/50;
         osc2.amp(0.8, 0);
@@ -85,13 +82,5 @@ function draw() {
   osc1.amp(0.0, 0.1);
   osc2.amp(0.0, 0.1);
     xoff += xincrement;
+    // With each cycle, increment xoff
 }
-
-/*function keyTyped() {
-
-  if (key == '=') {
-      a=a+3;}else if (key == '-') {
-      a=a-3;
-      }
-
-}*/
