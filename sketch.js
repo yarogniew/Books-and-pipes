@@ -1,6 +1,7 @@
 // Bibliotekarz
 
-var osc1, osc2;
+var osc1, osc2, osc;
+var osc2;
 var x, y;
 var step = 0.3;
 var margin = 10; // margines
@@ -23,10 +24,10 @@ function setup() {
   osc1.start();
   osc2.amp(0, 0);
   osc2.start();
-  //osc = new p5.SqrOsc(); // set frequency and type
-  //osc.amp(0);
-  //osc.start();
-}
+  osc = new p5.SqrOsc(); // set frequency and type
+  osc.amp(0);
+  osc.start();
+
 
   textSize(14);
   textAlign(CENTER);
