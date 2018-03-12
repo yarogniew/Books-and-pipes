@@ -1,11 +1,12 @@
 // Bibliotekarz
 
-var osc;
+var osc1, osc2;
 var x, y;
 var step = 0.3;
 var margin = 10; // margines
 var xoff = 0.05;
 var xincrement = 0.5;
+
 
 var a = 40; // bok kwadratu
 
@@ -22,6 +23,10 @@ function setup() {
   osc1.start();
   osc2.amp(0, 0);
   osc2.start();
+  //osc = new p5.SqrOsc(); // set frequency and type
+  //osc.amp(0);
+  //osc.start();
+}
 
   textSize(14);
   textAlign(CENTER);
@@ -65,7 +70,8 @@ function draw() {
   rectMode(CENTER);
   //ustawienie srodka jako punktu odniesienia kwadratu
   fill('white');
-
+blendMode(HARD_LIGHT);
+//EXCLUSION, BLEND, DIFFERENCE, MULTIPLY
   rect(x+n, y-n, a, a);
 
   osc1.amp(0.0, 0.1);
