@@ -14,7 +14,7 @@ function setup() {
   //createCanvas(szerEkranu, wysEkranu);
   createCanvas(windowWidth, windowHeight);
   background(200);
- x = windowWidth/2;
+  x = windowWidth/2;
   y = windowHeight/2;
  	//createCanvas(displayWidth, displayHeight);
   osc1 = new p5.Noise('white');
@@ -24,15 +24,15 @@ function setup() {
   osc2.amp(0, 0);
   osc2.start();
 
-  textSize(16);
+  textSize(14);
   textAlign(CENTER);
-  fill(240);
-  text("ESC=clear, '1'=biger, '2'=smaller, arrays=move" , windowWidth/2, 40);
+  fill(250);
+  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move", windowWidth/2, 20);
 }
 
 function draw() {
 
-var n = noise(xoff)*5;
+  var n = noise(xoff)*5;
 
 
   //print(n);
@@ -53,7 +53,7 @@ var n = noise(xoff)*5;
       {
         x=x+step+n/2+a/50;
         osc1.amp(0.5, 0);
-      } else if (keyCode == UP_ARROW && y>0+a/2+margin)
+      } else if (keyCode == UP_ARROW && y>0+a/2+margin*4)
       {
         y=y-step-n/2-a/50;
         osc2.amp(0.8, 0);
