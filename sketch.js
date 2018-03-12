@@ -26,10 +26,14 @@ function setup() {
   osc1.start();
   osc2.amp(0, 0);
   osc2.start();
+
+  textSize(16);
+  textAlign(CENTER);
+  fill(240);
+  text("ESC=clear, '1'=biger, '2'=smaller, arrays=move" , windowWidth/2, windowHeight/2);
 }
 
 function draw() {
-
 
   var n = noise(xoff)*5;
   // With each cycle, increment xoff
@@ -37,6 +41,10 @@ function draw() {
   //print(n);
       //background(200);
   if (keyIsPressed) {
+        if (keyCode == 50) {
+        a=a+0.5;}else if (keyCode == 49) {
+        a=a-0.5;
+        }
 
     if (keyCode == ESCAPE)
       {
@@ -79,11 +87,11 @@ function draw() {
     xoff += xincrement;
 }
 
-function keyTyped() {
+/*function keyTyped() {
 
   if (key == '=') {
       a=a+3;}else if (key == '-') {
       a=a-3;
       }
 
-}
+}*/
