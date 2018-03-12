@@ -42,9 +42,8 @@ function draw() {
     {
       alarmo();
     } else {  osc.amp(0, 0);}
-print(y,x);
+//           print(y,x);
 
-      //background(200);
   if (keyIsPressed) {
         if (keyCode == 50) {
         a=a+0.5;}else if (keyCode == 49) {
