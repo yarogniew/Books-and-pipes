@@ -39,9 +39,8 @@ function setup() {
 }
 
 function draw() {
-
     n = noise(xoff)*5;
-//           print(y,x);
+    //           print(y,x);
 
     if (x<a/2+margin || x>windowWidth-a/2-margin || y<a/2+margin*4  || y>windowHeight-a/2-margin)
     {
