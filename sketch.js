@@ -59,7 +59,7 @@ function draw() {
 
 
   if (keyIsPressed) {
-        if (keyCode == 50 && a<200) { // klaw 1,2 zmiana rozmiaru kwadratu
+        if (keyCode == 50 && a<150) { // klaw 1,2 zmiana rozmiaru kwadratu
         a=a+0.5;
         //osc3.amp(0.5, 0);
         oscBfreq();
