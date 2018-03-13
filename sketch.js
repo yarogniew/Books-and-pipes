@@ -9,14 +9,13 @@ var xoff = 0.05;
 var xincrement = 0.5;
 var n;
 
-var a = 40; // bok kwadratu
+var a; // bok kwadratu
 
 function setup() {
   //createCanvas(szerEkranu, wysEkranu);
   createCanvas(windowWidth, windowHeight);
-  background(200);
-  x = windowWidth/2;
-  y = windowHeight/2;
+
+
  	//createCanvas(displayWidth, displayHeight);
   osc1 = new p5.Noise('white');
   osc2 = new p5.Noise('pink');
@@ -31,11 +30,8 @@ function setup() {
   osc.amp(0, 0);
   osc.start();
 
+  begining();
 
-  textSize(14);
-  textAlign(CENTER);
-  fill(250);
-  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move", windowWidth/2, 20);
 }
 
 function draw() {
@@ -58,7 +54,7 @@ function draw() {
         osc3.amp(0.5, 0);
       } else if (keyCode == ESCAPE)
       {
-        background(200);
+        clearWindow();
       } else if (keyCode == LEFT_ARROW && x>a/2+margin )
       {
         x=x-step-n/2-a/50;
@@ -81,8 +77,8 @@ function draw() {
 
   rectMode(CENTER);
   //ustawienie srodka jako punktu odniesienia kwadratu
-  fill('white');2
-blendMode(HARD_LIGHT);
+  fill('white');
+//blendMode(DIFFERENCE);
 //EXCLUSION, BLEND, DIFFERENCE, MULTIPLY
   rect(x+n, y-n, a, a);
 
@@ -97,4 +93,16 @@ blendMode(HARD_LIGHT);
 function alarmo() {
 osc.amp(0.2, 0);
 osc.freq(n*700);
+}
+
+function begining() {
+  x = windowWidth/2;
+  y = windowHeight/2;
+  a = 40;
+  background(200);
+  textSize(14);
+  textAlign(CENTER);
+  fill(250);
+  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move", windowWidth/2, 20);
+
 }
