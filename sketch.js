@@ -8,7 +8,7 @@ var margin = 10; // margin
 var xoff = 0.05;
 var xincrement = 0.5;
 var n;
-var e, r; // ellipse or rectangle
+var c, r; // circle or rectangle
 var a; // the size of the square
 
 function setup() {
@@ -34,7 +34,7 @@ function setup() {
 
   begining();
 
-  e = 0;
+  c = 0;
   r = 1;
 }
 
@@ -47,13 +47,13 @@ function draw() {
       alarmo();
     } else {  osc.amp(0, 0);}
 
-    if (keyCode == 101) { // klaw e lub r zmiana kształtu
-    e = 1;
+    if (keyCode == 67) { // klaw c lub r zmiana kształtu
+    c = 1;
     r = 0;
   }else if (keyCode == 114)
     {
       r = 1;
-      e = 0;
+      c = 0;
     }
 
 
@@ -95,7 +95,7 @@ function draw() {
 //blendMode(DIFFERENCE);
 //EXCLUSION, BLEND, DIFFERENCE, MULTIPLY
   if (r) {rect(x+n, y-n, a, a);}
-  if (e) {ellipse(x+n, y-n, a, a);}
+  if (c) {ellipse(x+n, y-n, a, a);}
 
   osc1.amp(0.0, 0.1);
   osc2.amp(0.0, 0.1);
@@ -118,7 +118,7 @@ function begining() {
   textSize(14);
   textAlign(CENTER);
   fill(250);
-  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move, r=rect., e=circ.", windowWidth/2, 20);
+  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move, r=rect., c=circ.", windowWidth/2, 20);
 }
 
 function oscBfreq() {
