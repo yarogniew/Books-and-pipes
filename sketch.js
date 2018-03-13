@@ -1,37 +1,41 @@
 // Bibliotekarz
 
-var osc1, osc2, osc3, osc;
+var osc1, osc2, osc3, osc, oscB;
 var osc2;
 var x, y;
 var step = 0.3;
-var margin = 10; // margines
+var margin = 10; // margin
 var xoff = 0.05;
 var xincrement = 0.5;
 var n;
-
-var a; // bok kwadratu
+var e, r; // ellipse or rectangle
+var a; // the size of the square
 
 function setup() {
-  //createCanvas(szerEkranu, wysEkranu);
+
   createCanvas(windowWidth, windowHeight);
-
-
  	//createCanvas(displayWidth, displayHeight);
+
   osc1 = new p5.Noise('white');
-  osc2 = new p5.Noise('pink');
-  osc3 = new p5.Noise('brown');
   osc1.amp(0, 0);
   osc1.start();
+  osc2 = new p5.Noise('pink');
   osc2.amp(0, 0);
   osc2.start();
+  osc3 = new p5.Noise('brown');
   osc3.amp(0, 0);
   osc3.start();
-  osc = new p5.SqrOsc(); // set frequency and type
+  osc = new p5.SqrOsc();
   osc.amp(0, 0);
   osc.start();
+  oscB = new p5.SinOsc();
+  oscB.amp(0, 0);
+  oscB.start();
 
   begining();
 
+  e = 0;
+  r = 1;
 }
 
 function draw() {
@@ -44,17 +48,28 @@ function draw() {
       alarmo();
     } else {  osc.amp(0, 0);}
 
+    if (keyCode == 101) { // klaw e lub r zmiana kształtu
+    e = 1;
+    r = 0;
+  }else if (keyCode == 114)
+    {
+      r = 1;
+      e = 0;
+    }
+
 
   if (keyIsPressed) {
-        if (keyCode == 50) { // klaw 1,2 zmiana rozmiaru kwadratu
+        if (keyCode == 50 && a<200) { // klaw 1,2 zmiana rozmiaru kwadratu
         a=a+0.5;
-        osc3.amp(0.5, 0);}else if (keyCode == 49)
+        //osc3.amp(0.5, 0);
+        oscBfreq();
+      }else if (keyCode == 49 && a>10)
         {
         a=a-0.5;
-        osc3.amp(0.5, 0);
+        oscBfreq();
       } else if (keyCode == ESCAPE)
       {
-        clearWindow();
+        begining();
       } else if (keyCode == LEFT_ARROW && x>a/2+margin )
       {
         x=x-step-n/2-a/50;
@@ -76,24 +91,25 @@ function draw() {
   }
 
   rectMode(CENTER);
-  //ustawienie srodka jako punktu odniesienia kwadratu
+  //center of the square as a reference point
   fill('white');
 //blendMode(DIFFERENCE);
 //EXCLUSION, BLEND, DIFFERENCE, MULTIPLY
-  rect(x+n, y-n, a, a);
+  if (r) {rect(x+n, y-n, a, a);}
+  if (e) {ellipse(x+n, y-n, a, a);}
 
   osc1.amp(0.0, 0.1);
   osc2.amp(0.0, 0.1);
   osc3.amp(0.0, 0.8);
+  oscB.amp(0.0, 0.8);
     xoff += xincrement;
     // With each cycle, increment xoff
-
 }
 
 function alarmo() {
-osc.amp(0.2, 0);
-osc.freq(n*700);
-}
+  osc.amp(0.2, 0);
+  osc.freq(n*700);
+  }
 
 function begining() {
   x = windowWidth/2;
@@ -103,6 +119,10 @@ function begining() {
   textSize(14);
   textAlign(CENTER);
   fill(250);
-  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move", windowWidth/2, 20);
+  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move, r=rect., e=circ.", windowWidth/2, 20);
+}
 
+function oscBfreq() {
+  oscB.amp(0.2, 0);
+  oscB.freq(a*a*0.3);
 }
