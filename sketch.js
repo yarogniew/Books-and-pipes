@@ -66,7 +66,7 @@ function draw() {
         {
         a=a-0.5;
         oscBfreq();
-      } else if (keyCode == ESCAPE)
+      } else if (keyCode == ESCAPE) // clear window
       {
         begining();
       } else if (keyCode == LEFT_ARROW && x>a/2+margin )
