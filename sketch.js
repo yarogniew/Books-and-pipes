@@ -92,8 +92,8 @@ function draw() {
   rectMode(CENTER);
   //center of the square as a reference point
   fill('white');
-//blendMode(DIFFERENCE);
-//EXCLUSION, BLEND, DIFFERENCE, MULTIPLY
+  //blendMode(DIFFERENCE);
+  //EXCLUSION, BLEND, DIFFERENCE, MULTIPLY
   if (r) {rect(x+n, y-n, a, a);}
   if (c) {ellipse(x+n, y-n, a, a);}
 
