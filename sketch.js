@@ -50,7 +50,7 @@ function draw() {
     if (keyCode == 67) { // klaw c lub r zmiana kształtu
     c = 1;
     r = 0;
-  }else if (keyCode == 114)
+  }else if (keyCode == 81)
     {
       r = 1;
       c = 0;
@@ -118,7 +118,7 @@ function begining() {
   textSize(14);
   textAlign(CENTER);
   fill(250);
-  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move, r=rect., c=circ.", windowWidth/2, 20);
+  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move, q=square, c=circle", windowWidth/2, 20);
 }
 
 function oscBfreq() {
