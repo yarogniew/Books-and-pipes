@@ -114,7 +114,7 @@ function begining() {
   x = windowWidth/2;
   y = windowHeight/2;
   a = 40;
-  background(200);
+  background(160);
   textSize(14);
   textAlign(CENTER);
   fill(250);
