@@ -118,7 +118,7 @@ function begining() {
   textSize(14);
   textAlign(CENTER);
   fill(250);
-  text("ESC=clear, 1=biger, 2=smaller, LEFT, RIGHT, UP, DOWN=move, q=square, c=circle", windowWidth/2, 20);
+  text("ESC=clear, 1=smaller, 2=bigger, LEFT, RIGHT, UP, DOWN=move, q=square, c=circle", windowWidth/2, 20);
 }
 
 function oscBfreq() {
