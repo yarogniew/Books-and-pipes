@@ -1,4 +1,4 @@
-// Bibliotekarz
+// Books & pipes, yarogniew
 
 var osc1, osc2, osc3, osc, oscB;
 var osc2;
@@ -118,10 +118,16 @@ function begining() {
   textSize(14);
   textAlign(CENTER);
   fill(250);
-  text("ESC=clear, 1=smaller, 2=bigger, LEFT, RIGHT, UP, DOWN=move, q=square, c=circle", windowWidth/2, 20);
+  text("ESC=clear, 1=smaller, 2=bigger, LEFT, RIGHT, UP, DOWN=move, q=square, c=circle, s=save", windowWidth/2, 20);
 }
 
 function oscBfreq() {
   oscB.amp(0.2, 0);
   oscB.freq(a*a*0.3);
+}
+
+function keyTyped() {
+  if (key == 's') {
+save('saved_picture_');
+  }
 }
